@@ -51,10 +51,10 @@ const char* LMS_GetFlowParamText(LMS_Flowchart* flowchart, s32 offset) {
 }
 
 const LMS_Node* LMS_GetNodeDataPtr(const LMS_Flowchart* flowchart, s32 index) {
-    if (flowchart->flw3Offset != -1) {
-        return (LMS_Node*)flowchart->common.blocks[flowchart->flw3Offset].data + (s32)index * 0x10 + 0x10;
+    if (flowchart->flw3Offset == -1) {
+        return NULL;
     }
-  return NULL;
+  return (LMS_Node*)flowchart->common.blocks[flowchart->flw3Offset].data + (s32)index * 0x10 + 0x10;
 }
 
 s32 LMS_GetNodeNum(LMS_Flowchart* flowchart) 
