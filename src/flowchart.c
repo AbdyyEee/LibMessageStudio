@@ -62,7 +62,7 @@ s32 LMS_GetNodeNum(LMS_Flowchart* flowchart)
     if (flowchart->flw3Offset == -1) {
         return NULL;
     }
-  return return (u32)*(flowchart->common).blocks[flowchart->flw3Offset].data;
+  return (u32)*(flowchart->common).blocks[flowchart->flw3Offset].data;
 }
 
 const u16* LMS_GetCaseIndexesFromBranchNode(LMS_Flowchart* flowchart, s32 index)
