@@ -1,7 +1,8 @@
 #include "flowchart.h"
 #include "libms.h"
 
-//matching
+/* Functions match either Tomodachi Life or Triforce Heros */
+
 LMS_Flowchart* LMS_InitFlowchart(const void* data) 
 {
     LMS_Flowchart* flowchart = (LMS_Flowchart*)LMSi_Malloc(sizeof(LMS_Flowchart));
@@ -15,7 +16,7 @@ LMS_Flowchart* LMS_InitFlowchart(const void* data)
     return flowchart;
 }
 
-// matching
+
 void LMS_CloseFlowchart(LMS_Flowchart* flowchart)
 {
     if (flowchart->common.blocks) {
