@@ -59,10 +59,10 @@ const LMS_Node* LMS_GetNodeDataPtr(const LMS_Flowchart* flowchart, s32 index) {
 
 s32 LMS_GetNodeNum(LMS_Flowchart* flowchart) 
 {
-    if (flowchart->flw3Offset != -1) {
-        return (u32)(flowchart->common).blocks[flowchart->flw3Offset].data;
+    if (flowchart->flw3Offset == -1) {
+        return NULL;
     }
-  return -1;
+  return return (u32)*(flowchart->common).blocks[flowchart->flw3Offset].data;
 }
 
 const u16* LMS_GetCaseIndexesFromBranchNode(LMS_Flowchart* flowchart, s32 index)
