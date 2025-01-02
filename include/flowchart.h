@@ -11,11 +11,11 @@ typedef struct LMS_Flowchart
 } LMS_Flowchart;
 
 typedef enum LMS_NodeTypes {
-    Message,
-    Branch,
-    Event,
-    Entry, 
-    Jump
+    Message = 1,
+    Branch = 2,
+    Event = 3,
+    Entry = 4,
+    Jump = 5
 } LMS_NodeTypes;
 
 typedef struct LMS_Node 
