@@ -27,7 +27,7 @@ void LMS_CloseFlowchart(LMS_Flowchart* flowchart)
     LMSi_Free(flowchart);
 }
 
-int LMS_GetEntryNodeIndex(const LMS_Flowchart* flowchart, const char* label) {
+u32 LMS_GetEntryNodeIndex(const LMS_Flowchart* flowchart, const char* label) {
     // TODO
 }
 
@@ -40,7 +40,7 @@ const char* LMS_GetFlowParamText(LMS_Flowchart* flowchart, s32 offset) {
         return NULL;
     }
     else {
-        return (char *)((int)flw3->data + offset);
+        return (char *)((u32)flw3->data + offset);
     }
 
     return NULL;
