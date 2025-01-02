@@ -18,7 +18,6 @@ typedef enum LMS_NodeTypes {
     Jump
 } LMS_NodeTypes;
 
-// Struct definitions for formal use, (only used by LMS_GetNodeDataPtr??)
 typedef struct LMS_Node 
 {
     LMS_NodeTypes type;
@@ -40,7 +39,6 @@ typedef struct LMS_NodeInfo
 LMS_Flowchart* LMS_InitFlowchart(const void* data);
 void LMS_CloseFlowchart(LMS_Flowchart* flowchart);
 
-int LMS_GetFlowNodeIndex(const LMS_Flowchart* flowchart, const LMS_Node *node);
 int LMS_GetEntryNodeIndex(const LMS_Flowchart* flowchart, const char *label);
 
 char* LMS_GetFlowParamText(LMS_Flowchart* flowchart, s32 offset);
