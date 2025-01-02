@@ -20,11 +20,11 @@ typedef enum LMS_NodeTypes {
 
 typedef struct LMS_Node 
 {
-    LMS_NodeTypes type;
-    u8 subType;
-    u16 reserved;
-    u16 subTypeValue;
-    LMS_NodeInfo* nodeInfo;
+    LMS_NodeTypes type; // 0
+    u8 subType; // 1
+    u16 reserved; // 2
+    u16 subTypeValue; // 4
+    LMS_NodeInfo* nodeInfo; // 8 
 } LMS_Node;
 
 typedef struct LMS_NodeInfo 
