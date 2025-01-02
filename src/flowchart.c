@@ -1,7 +1,7 @@
 #include "flowchart.h"
 #include "libms.h"
 
-/* Functions match either Tomodachi Life or Triforce Heros */
+/* Functions match Tomodachi Life and Triforce Heros */
 
 LMS_Flowchart* LMS_InitFlowchart(const void* data) 
 {
@@ -25,11 +25,6 @@ void LMS_CloseFlowchart(LMS_Flowchart* flowchart)
     }
     
     LMSi_Free(flowchart);
-}
-
-
-int LMS_GetFlowNodeIndex(const LMS_Flowchart* flowchart, const LMS_Node* node) {
-    // TODO 
 }
 
 int LMS_GetEntryNodeIndex(const LMS_Flowchart* flowchart, const char* label) {
