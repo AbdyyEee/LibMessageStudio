@@ -1,5 +1,5 @@
 # LibMessageStudio-Decomp
-A decompilation of the message studio library used in various Nintendo games.
+Fork of the decompilation of the message studio library used in various Nintendo games, with MSBF added on.
 
 ## Wiki
 For further information about the structure of the file formats, check out the [Wiki](https://github.com/Trippixyz/LibMessageStudio-File-Formats/wiki).
