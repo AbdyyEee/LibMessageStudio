@@ -32,7 +32,7 @@ u32 LMS_GetEntryNodeIndex(const LMS_Flowchart* flowchart, const char* label) {
 }
 
 // Inferring return type
-const char* LMS_GetFlowParamText(LMS_Flowchart* flowchart, s32 offset) {
+const char* LMS_GetFlowParamText(LMS_Flowchart* flowchart, u32 offset) {
     
     LMS_BinaryBlock* flw3 = flowchart->common.blocks + flowchart->flw3Offset;
 
@@ -46,14 +46,14 @@ const char* LMS_GetFlowParamText(LMS_Flowchart* flowchart, s32 offset) {
     return NULL;
 }
 
-const LMS_Node* LMS_GetNodeDataPtr(const LMS_Flowchart* flowchart, s32 index) {
+const LMS_Node* LMS_GetNodeDataPtr(const LMS_Flowchart* flowchart, u32 index) {
     if (flowchart->flw3Offset == -1) {
         return NULL;
     }
   return (LMS_Node*)flowchart->common.blocks[flowchart->flw3Offset].data + (s32)index * 0x10 + 0x10;
 }
 
-s32 LMS_GetNodeNum(LMS_Flowchart* flowchart) 
+u32 LMS_GetNodeNum(LMS_Flowchart* flowchart) 
 {
     if (flowchart->flw3Offset == -1) {
         return NULL;
@@ -61,7 +61,7 @@ s32 LMS_GetNodeNum(LMS_Flowchart* flowchart)
   return (u32)*(flowchart->common).blocks[flowchart->flw3Offset].data;
 }
 
-const u16* LMS_GetCaseIndexesFromBranchNode(LMS_Flowchart* flowchart, s32 index)
+const u16* LMS_GetCaseIndexesFromBranchNode(LMS_Flowchart* flowchart, u32 index)
 {
     LMS_BinaryBlock* flw3 = (flowchart->common).blocks + flowchart->flw3Offset;
 
@@ -70,7 +70,7 @@ const u16* LMS_GetCaseIndexesFromBranchNode(LMS_Flowchart* flowchart, s32 index)
         char* nodeOffset = (char*)((s32)data + index * 0x10 + 0x10 );
         
         if (nodeOffset != NULL && (*nodeOffset == "\x02")) {
-            return (u16*)((s32)data + (u32)*(u16*)(nodeOffset + 0xe) * 2 + 0x10 + (u32)*flw3->data * 0x10);
+            return (u16*)((u32)data + (u32)*(u16*)(nodeOffset + 0xe) * 2 + 0x10 + (u32)*flw3->data * 0x10);
         }
     }
     return 0;
