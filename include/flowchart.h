@@ -1,5 +1,4 @@
 #pragma once
-
 #include "commonbin.h"
 
 typedef struct LMS_Flowchart
@@ -10,27 +9,39 @@ typedef struct LMS_Flowchart
     s32 ref1Offset; 
 } LMS_Flowchart;
 
-typedef enum LMS_NodeTypes {
-    MESSAGE = 1,
-    BRANCH = 2,
-    EVENT = 3,
-    ENTRY = 4,
-    JUMP = 5
+/* Official Names */
+typedef enum LMS_NodeType {
+    MESSAGE = 0x1,
+    BRANCH = 0x2,
+    EVENT = 0x3,
+    ENTRY = 0x4,
+    JUMP = 0x5
 } LMS_NodeTypes;
+
+/* Unofficial Names */
+typedef enum LMS_NodeParameterType {
+    PARAM_32_0 = 0x0,
+    PARAM_16_16 = 0x1,
+    PARAM_16_8_8 = 0x2,
+    PARAM_8_8_16 = 0x3,
+    PARAM_8_8_8_8 = 0x4,
+    STRING = 0x5,
+    PARAM_32_1 = 0x6,
+} LMS_NodeParameterType;
 
 typedef struct LMS_Node 
 {
-    LMS_NodeTypes type; // 0
-    s8 paramType; // 1
+    LMS_NodeType type; // 0
+    LMS_NodeParameterType parameterType; // 1
     u16 reserved; // 2
-    u32 paramValue; // 4
+    u32 parameterValue; // 4
     LMS_NodeInfo* nodeInfo; // 8 
 } LMS_Node;
 
 typedef struct LMS_NodeInfo 
 {
-    u16 nextNodeID;
-    u16 identifier;
+    u16 nextNodeIndex;
+    u16 identifier; // Only for Branch/Event nodes
     u16 short1;
     u16 short2;
 
