@@ -1,8 +1,6 @@
 #include "flowchart.h"
 #include "libms.h"
 
-/* Functions match Tomodachi Life and Triforce Heros */
-
 LMS_Flowchart* LMS_InitFlowchart(const void* data) 
 {
     LMS_Flowchart* flowchart = (LMS_Flowchart*)LMSi_Malloc(sizeof(LMS_Flowchart));
